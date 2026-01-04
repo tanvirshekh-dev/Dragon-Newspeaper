@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaRegBookmark, FaShareAlt, FaEye, FaStar, FaRegStar } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
-  const { title, author, thumbnail_url, details, rating, total_view } = news;
+  const { id, title, author, thumbnail_url, details, rating, total_view } = news;
 
   // Function to render stars based on rating number
   const renderStars = (num) => {
@@ -16,7 +17,7 @@ const NewsCard = ({ news }) => {
   return (
     <div className="card w-full max-w-2xl bg-base-100 shadow-lg border border-gray-100 rounded-md overflow-hidden mb-8 hover:scale-105 transition duration-300 ease-in-out">
       
-      {/* 1. Header: Author Info & Actions */}
+      {/* Header */}
       <div className="flex justify-between items-center p-4 bg-gray-50">
         <div className="flex items-center gap-3">
           <div className="avatar">
@@ -41,7 +42,7 @@ const NewsCard = ({ news }) => {
         </div>
       </div>
 
-      {/* 2. Body: Content */}
+      {/* Body */}
       <div className="p-4">
         <h2 className="card-title text-xl font-bold mb-4 text-gray-800 leading-tight">
           {title}
@@ -59,7 +60,7 @@ const NewsCard = ({ news }) => {
           {details.length > 250 ? (
             <>
               {details.slice(0, 250)}... 
-              <span className="text-orange-500 font-semibold cursor-pointer ml-1">Read More</span>
+              <Link to={`/news-details/${id}`} className="text-orange-500 font-semibold cursor-pointer ml-1 cursor-pointer">Read More</Link>
             </>
           ) : details}
         </p>
@@ -67,7 +68,7 @@ const NewsCard = ({ news }) => {
 
       <hr className="mx-4 border-gray-200" />
 
-      {/* 3. Footer: Rating & Views */}
+      {/* Footer */}
       <div className="flex justify-between items-center p-4">
         <div className="flex items-center gap-2">
           <div className="flex text-lg">
