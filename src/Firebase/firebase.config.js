@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCz0k4UoXnoM6BEjKp-g14vIloT0CI77Qk",
-  authDomain: "dragon-newspeaper.firebaseapp.com",
-  projectId: "dragon-newspeaper",
-  storageBucket: "dragon-newspeaper.firebasestorage.app",
-  messagingSenderId: "1052574556936",
-  appId: "1:1052574556936:web:c704e93c483621ef5842bd"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

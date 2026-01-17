@@ -1,34 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { useLoaderData, useParams } from "react-router";
 import NewsCard from "../Components/NewsCard";
 
 const CategoryNews = () => {
   const { id } = useParams();
   const data = useLoaderData();
-  const [categoryNews, setCategoryNews] = useState([]);
 
-  useEffect(() => {
-    if (id == "0") {
-      setCategoryNews(data);
-    } else if (id == "1") {
-      const filteredNews = data.filter(
-        (news) => news.others.is_today_pick == true
-      );
-      setCategoryNews(filteredNews);
+  const categoryNews = useMemo(() => {
+    if (id === "0") {
+      return data;
+    } else if (id === "1") {
+      return data.filter((news) => news.others.is_today_pick === true);
     } else {
-      const filteredNews = data.filter((news) => news.category_id == id);
-      setCategoryNews(filteredNews);
+      return data.filter((news) => news.category_id === id);
     }
   }, [id, data]);
+
   return (
     <div>
-      <h2 className="font-semibold mb-5">
-        Total <span className="text-secondary">{categoryNews.length}</span> News
-        Found
-      </h2>
+      <h2>Total {categoryNews.length} News Found</h2>
       <div>
         {categoryNews.map((news) => (
-          <NewsCard key={news.id} news={news}></NewsCard>
+          <NewsCard key={news.id} news={news} />
         ))}
       </div>
     </div>

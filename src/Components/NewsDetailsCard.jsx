@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const NewsDetailsCard = ({news}) => {
-    console.log(news);
+    // console.log(news);
     
     return (
         <div className='p-4 shadow-md space-y-5 mt-5 pb-8'>

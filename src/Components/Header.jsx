@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className='flex flex-col justify-center items-center py-4'>
             <img src={logo} alt="" />
-            <p className='text-accent'>Journalism Without Fear or Favour</p>
+            <p className='text-accent'>The Bangladeshi News</p>
             <p>{format(new Date(), "EEEE, LLLL d, yyyy")}</p>
         </div>
     );
